@@ -16,6 +16,7 @@ npm install gulp-concat --save-dev -dd
 npm install gulp-clean --save-dev -dd
 npm install gulp-zip --save-dev -dd
 npm install gulp-sequence --save-dev -dd
+npm install gulp-plumber --save-dev -dd
 npm install opn --save-dev -dd
 npm install tiny-lr --save-dev -dd
 */
@@ -34,6 +35,7 @@ var lr           = require('tiny-lr'),
     rename       = require("gulp-rename"),
     copy         = require("gulp-copy"),
     zip          = require('gulp-zip'),
+    plumber      = require('gulp-plumber'),
     gulpSequence = require('gulp-sequence');
 
 //配置本地Web 服务器：主机+端口
@@ -45,7 +47,7 @@ var localserver = {
 //多余文件删除
 gulp.task('clean', function () {
   return gulp.src('./js/all.js')
-    .pipe(clean())
+    .pipe(clean({force: true}))
 });
 
 //合并javascript 文件，合并后文件放入js下按顺序压缩gulp.src(['a.js', 'b.js', 'c.js'])
@@ -59,6 +61,7 @@ gulp.task('alljs',['clean'],function(cb){
 //压缩css 文件
 gulp.task('styles', function(cb) {
   gulp.src('./css/*.scss')
+    .pipe(plumber())
     .pipe(sass({outputStyle: 'compact'}))
     .pipe(autoprefixer('last 2 version'))
     .pipe(gulp.dest('./css'))
