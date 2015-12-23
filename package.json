@@ -1,0 +1,41 @@
+{
+  "name": "FEG",
+  "version": "1.0.0",
+  "description": " Front-End Gulp",
+  "main": "index.js",
+  "keywords": [
+    "gulp",
+    "sass",
+    "livereload",
+    "style",
+    "html",
+    "zip"
+  ],
+  "author": "wangzhe",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangdaodao/feg"
+  },
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "node-sass":"3.4.2",
+    "gulp-sass": "2.1.1",
+    "gulp-autoprefixer":"3.1.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-livereload":"3.8.1",
+    "gulp-uglify":"1.5.1",
+    "gulp-webserver":"0.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-clean":"0.3.1",
+    "gulp-zip": "^3.0.2",
+    "gulp-sequence":"0.4.3",
+    "opn":"3.0.3",
+    "tiny-lr":"0.2.1",
+    "gulp-plumber": "^1.0.1"
+  }
+}
