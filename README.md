@@ -58,7 +58,7 @@ $ gulp build
 
 3、打包代码自动生成到build文件夹下，根目录会生成build.zip
 
-[![build](http://blog.wangdaodao.com/uploads/2015/12/feg.gif)](http://blog.wangdaodao.com/uploads/2015/12/feg.gif)
+[![build](http://wangdaodao.gitcafe.io/uploads/2015/12/feg.gif)](http://wangdaodao.gitcafe.io/uploads/2015/12/feg.gif)
 
 ## 常见问题
 由于网络原因安装过程中极有可能出现下列问题，在后面给出了解决方案。
