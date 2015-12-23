@@ -31,7 +31,6 @@ var lr           = require('tiny-lr'),
     opn          = require('opn'),
     concat       = require('gulp-concat'),
     clean        = require('gulp-clean'),
-    rename       = require("gulp-rename"),
     copy         = require("gulp-copy"),
     zip          = require('gulp-zip'),
     plumber      = require('gulp-plumber');
@@ -42,14 +41,14 @@ var localserver = {
   port: '8080'
 }
 
-//多余文件删除
+//删除js文件
 gulp.task('clean', function () {
   var stream = gulp.src('./js/all.js')
     .pipe(clean());
   return stream;
 });
 
-//合并javascript 文件，合并后文件放入js下按顺序压缩gulp.src(['a.js', 'b.js', 'c.js'])
+//合并javascript文件，合并后文件放入js下按顺序压缩gulp.src(['a.js', 'b.js', 'c.js'])
 gulp.task('alljs',['clean'],function(){
   var stream = gulp.src('./js/*.js')
     .pipe(concat('all.js'))
@@ -57,7 +56,7 @@ gulp.task('alljs',['clean'],function(){
   return stream;
 });
 
-//压缩css 文件
+//压缩css文件
 gulp.task('styles', function() {
   var stream = gulp.src('./css/*.scss')
     .pipe(plumber())
@@ -95,37 +94,51 @@ gulp.task('openbrowser', function() {
     opn( 'http://' + localserver.host + ':' + localserver.port );
 });
 
+//把HTML拷贝到build下 
 gulp.task('buildhtml', function() {
-  //根目录文件
   var stream = gulp.src('./*.html')
     .pipe(gulp.dest('./build'));
   return stream;
 });
+
+//把CSS拷贝到build下
 gulp.task('buildcss', ['styles'] , function() {
-  //CSS文件
   var stream = gulp.src('./css/*.css')
     .pipe(minifycss())
     .pipe(gulp.dest('./build/css'));
   return stream;
 });
+
+//把IMG拷贝到build下
 gulp.task('buildimg', function() {
-  //IMG文件
   var stream = gulp.src('./img/**')
     .pipe(gulp.dest('./build/img'));
   return stream;
 });
+
+//把PLUGIN拷贝到build下
 gulp.task('buildplugin', function() {
-  //plugin文件
   var stream = gulp.src('./plugin/**')
     .pipe(gulp.dest('./build/plugin'));
   return stream;
 });
+
+//把JS拷贝到build下
 gulp.task('buildjs', ['alljs'] , function() {
-  //压缩后的js文件
   var stream = gulp.src('./js/all.js')
     .pipe(uglify())
     .pipe(gulp.dest('./build/js'));
   return stream;
+});
+
+//默认任务
+gulp.task('start', function(){
+  gulp.start('styles');
+  gulp.start('clean');
+  gulp.start('alljs');
+  gulp.start('watch');
+  gulp.start('webserver');
+  gulp.start('openbrowser');
 });
 
 //打包主体build 文件夹并按照时间重命名
@@ -145,14 +158,4 @@ gulp.task('build' ,['buildhtml','buildcss','buildimg','buildplugin','buildjs'] ,
   return gulp.src('./build/**')
     .pipe(zip('build-'+year+month+day+hour+minute+'.zip'))
     .pipe(gulp.dest('./'));
-});
-
-//默认任务
-gulp.task('start', function(){
-  gulp.start('styles');
-  gulp.start('clean');
-  gulp.start('alljs');
-  gulp.start('watch');
-  gulp.start('webserver');
-  gulp.start('openbrowser');
 });
