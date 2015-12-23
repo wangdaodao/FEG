@@ -15,7 +15,6 @@ npm install gulp-webserver --save-dev -dd
 npm install gulp-concat --save-dev -dd
 npm install gulp-clean --save-dev -dd
 npm install gulp-zip --save-dev -dd
-npm install gulp-sequence --save-dev -dd
 npm install gulp-plumber --save-dev -dd
 npm install opn --save-dev -dd
 npm install tiny-lr --save-dev -dd
@@ -35,8 +34,7 @@ var lr           = require('tiny-lr'),
     rename       = require("gulp-rename"),
     copy         = require("gulp-copy"),
     zip          = require('gulp-zip'),
-    plumber      = require('gulp-plumber'),
-    gulpSequence = require('gulp-sequence');
+    plumber      = require('gulp-plumber');
 
 //配置本地Web 服务器：主机+端口
 var localserver = {
@@ -46,26 +44,27 @@ var localserver = {
 
 //多余文件删除
 gulp.task('clean', function () {
-  return gulp.src('./js/all.js')
-    .pipe(clean({force: true}))
+  var stream = gulp.src('./js/all.js')
+    .pipe(clean());
+  return stream;
 });
 
 //合并javascript 文件，合并后文件放入js下按顺序压缩gulp.src(['a.js', 'b.js', 'c.js'])
-gulp.task('alljs',['clean'],function(cb){
-  gulp.src('./js/*.js')
+gulp.task('alljs',['clean'],function(){
+  var stream = gulp.src('./js/*.js')
     .pipe(concat('all.js'))
-    .pipe(gulp.dest('./js'))
-    .on('end', cb);
+    .pipe(gulp.dest('./js'));
+  return stream;
 });
 
 //压缩css 文件
-gulp.task('styles', function(cb) {
-  gulp.src('./css/*.scss')
+gulp.task('styles', function() {
+  var stream = gulp.src('./css/*.scss')
     .pipe(plumber())
     .pipe(sass({outputStyle: 'compact'}))
     .pipe(autoprefixer('last 2 version'))
-    .pipe(gulp.dest('./css'))
-    .on('end', cb);
+    .pipe(gulp.dest('./css'));
+  return stream;
 });
 
 //文件监控
@@ -96,29 +95,41 @@ gulp.task('openbrowser', function() {
     opn( 'http://' + localserver.host + ':' + localserver.port );
 });
 
-//将相关项目文件复制到build 文件夹下
-gulp.task('buildfiles', function() {
+gulp.task('buildhtml', function() {
   //根目录文件
-  gulp.src('./*.html')
+  var stream = gulp.src('./*.html')
     .pipe(gulp.dest('./build'));
+  return stream;
+});
+gulp.task('buildcss', ['styles'] , function() {
   //CSS文件
-  gulp.src('./css/*.css')
+  var stream = gulp.src('./css/*.css')
     .pipe(minifycss())
     .pipe(gulp.dest('./build/css'));
+  return stream;
+});
+gulp.task('buildimg', function() {
   //IMG文件
-  gulp.src('./img/**')
+  var stream = gulp.src('./img/**')
     .pipe(gulp.dest('./build/img'));
+  return stream;
+});
+gulp.task('buildplugin', function() {
   //plugin文件
-  gulp.src('./plugin/**')
+  var stream = gulp.src('./plugin/**')
     .pipe(gulp.dest('./build/plugin'));
+  return stream;
+});
+gulp.task('buildjs', ['alljs'] , function() {
   //压缩后的js文件
-  gulp.src('./js/all.js')
+  var stream = gulp.src('./js/all.js')
     .pipe(uglify())
     .pipe(gulp.dest('./build/js'));
+  return stream;
 });
 
 //打包主体build 文件夹并按照时间重命名
-gulp.task('zip' , function(){
+gulp.task('build' ,['buildhtml','buildcss','buildimg','buildplugin','buildjs'] ,function(){
   function checkTime(i) {
     if (i < 10) {
       i = "0" + i
@@ -132,7 +143,7 @@ gulp.task('zip' , function(){
   var hour=checkTime(d.getHours());
   var minute=checkTime(d.getMinutes());
   return gulp.src('./build/**')
-    .pipe(zip('build-'+year+month+day +hour+minute+'.zip'))
+    .pipe(zip('build-'+year+month+day+hour+minute+'.zip'))
     .pipe(gulp.dest('./'));
 });
 
@@ -145,6 +156,3 @@ gulp.task('start', function(){
   gulp.start('webserver');
   gulp.start('openbrowser');
 });
-
-//项目完成提交任务
-gulp.task('build', gulpSequence(['styles','alljs'],'buildfiles','zip'));
