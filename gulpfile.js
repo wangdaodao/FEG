@@ -50,20 +50,18 @@ gulp.task('clean', function () {
 
 //合并javascript文件，合并后文件放入js下按顺序压缩gulp.src(['a.js', 'b.js', 'c.js'])
 gulp.task('alljs',['clean'],function(){
-  var stream = gulp.src('./js/*.js')
+  return gulp.src('./js/*.js')
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./js'));
-  return stream;
 });
 
 //压缩css文件
 gulp.task('styles', function() {
-  var stream = gulp.src('./css/*.scss')
+  return gulp.src('./css/*.scss')
     .pipe(plumber())
     .pipe(sass({outputStyle: 'compact'}))
     .pipe(autoprefixer('last 2 version'))
     .pipe(gulp.dest('./css'));
-  return stream;
 });
 
 //文件监控
@@ -74,8 +72,8 @@ gulp.task('watch', function () {
   gulp.watch('./js/*.js', ['alljs']);
   // Create LiveReload server
   livereload.listen();
-  // Watch any files in assets/, reload on change
-  gulp.watch(['./css/*.scss','./js/*.js','./*.html']).on('change', livereload.changed);
+  // Watch any files, reload on change
+  gulp.watch(['./css/*.css','./js/*.js','./*.html']).on('change', livereload.changed);
 });
 
 //开启本地 Web 服务器功能
