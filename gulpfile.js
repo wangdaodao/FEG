@@ -75,7 +75,7 @@ gulp.task('watch', function () {
   // Create LiveReload server
   livereload.listen();
   // Watch any files in assets/, reload on change
-  gulp.watch(['./css/*.scss','./js/*.js']).on('change', livereload.changed);
+  gulp.watch(['./css/*.scss','./js/*.js','./*.html']).on('change', livereload.changed);
 });
 
 //开启本地 Web 服务器功能
