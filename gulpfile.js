@@ -46,7 +46,6 @@ var localserver = {
 gulp.task('clean', function () {
   return gulp.src('./js/all.js')
     .pipe(clean())
-    
 });
 
 //合并javascript 文件，合并后文件放入js下按顺序压缩gulp.src(['a.js', 'b.js', 'c.js'])
@@ -87,7 +86,6 @@ gulp.task('webserver', function() {
       livereload:       true,
       directoryListing: false
     }));
-    
 });
 
 //通过浏览器打开本地 Web服务器 路径
@@ -100,26 +98,20 @@ gulp.task('buildfiles', function() {
   //根目录文件
   gulp.src('./*.html')
     .pipe(gulp.dest('./build'));
-    
   //CSS文件
   gulp.src('./css/*.css')
     .pipe(minifycss())
     .pipe(gulp.dest('./build/css'));
-    
   //IMG文件
   gulp.src('./img/**')
     .pipe(gulp.dest('./build/img'));
-    
   //plugin文件
   gulp.src('./plugin/**')
     .pipe(gulp.dest('./build/plugin'));
-  
   //压缩后的js文件
   gulp.src('./js/all.js')
     .pipe(uglify())
     .pipe(gulp.dest('./build/js'));
-    
-    
 });
 
 //打包主体build 文件夹并按照时间重命名
@@ -143,7 +135,6 @@ gulp.task('zip' , function(){
 
 //默认任务
 gulp.task('start', function(){
-  
   gulp.start('styles');
   gulp.start('clean');
   gulp.start('alljs');
