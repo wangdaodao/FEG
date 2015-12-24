@@ -71,9 +71,6 @@ $ gulp build
 安装 node-sass/gulp-sass 失败
 原因：是无法连接亚马逊云服务器下载二进制文件
 
-没有生成build压缩包。
-原因：第一次build的时候，build文件夹不存在所以没有
-
 #### 解决方案
 
 1. 下载 [node_modules.zip](http://pan.baidu.com/s/1YVMKe)
