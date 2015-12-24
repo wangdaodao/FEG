@@ -43,12 +43,12 @@ $ npm install
 $ gulp start
 ```
 
-4、调试
+5、调试
 ```
 $ gulp debug
 ```
 
-5、打包
+6、打包
 ```
 $ gulp build
 ```
