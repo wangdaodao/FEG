@@ -51,14 +51,6 @@ gulp.task('alljs',['cleanjs'],function(){
     .pipe(gulp.dest('./js'));
 });
 
-//删除css文件
-gulp.task('cleancss', function () {
-  var stream = gulp.src('./css/main.css')
-    .pipe(clean());
-    console.log("cleancss")
-  return stream;
-});
-
 //压缩css文件
 gulp.task('styles', function() {
   return gulp.src('./css/main.scss')
@@ -83,7 +75,6 @@ gulp.task('debugwatch', function () {
   // Watch any files, reload on change
   gulp.watch(['./css/*.css','./js/*.js','*.html'],function(file){
     livereload.changed(file.path);
-    console.log(file.path)
   });
 });
 
