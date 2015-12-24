@@ -17,11 +17,8 @@ npm install gulp-clean --save-dev -dd
 npm install gulp-zip --save-dev -dd
 npm install gulp-plumber --save-dev -dd
 npm install opn --save-dev -dd
-npm install tiny-lr --save-dev -dd
 */
-var lr           = require('tiny-lr'),
-    server       = lr(),
-    gulp         = require('gulp'),
+var gulp         = require('gulp'),
     sass         = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss    = require('gulp-minify-css'),
@@ -42,38 +39,49 @@ var localserver = {
 }
 
 //删除js文件
-gulp.task('clean', function () {
+gulp.task('cleanjs', function () {
   var stream = gulp.src('./js/all.js')
     .pipe(clean());
   return stream;
 });
 
 //合并javascript文件，合并后文件放入js下按顺序压缩gulp.src(['a.js', 'b.js', 'c.js'])
-gulp.task('alljs',['clean'],function(){
+gulp.task('alljs',['cleanjs'],function(){
   return gulp.src('./js/*.js')
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./js'));
+});
+
+//删除css文件
+gulp.task('cleancss', function () {
+  var stream = gulp.src('./css/main.css')
+    .pipe(clean());
+    console.log("cleancss")
+  return stream;
 });
 
 //压缩css文件
 gulp.task('styles', function() {
   return gulp.src('./css/*.scss')
     .pipe(plumber())
-    .pipe(sass({outputStyle: 'compact'}))
+    .pipe(sass({outputStyle: 'compact'}).on('error', sass.logError))
     .pipe(autoprefixer('last 2 version'))
     .pipe(gulp.dest('./css'));
 });
 
 //文件监控
 gulp.task('watch', function () {
+  // Create LiveReload server
+  livereload.listen();
   // Watch .scss files
   gulp.watch('./css/*.scss', ['styles']);
   // Watch .js files
   gulp.watch('./js/*.js', ['alljs']);
-  // Create LiveReload server
-  livereload.listen();
   // Watch any files, reload on change
-  gulp.watch(['./css/*.css','./js/*.js','./*.html']).on('change', livereload.changed);
+  gulp.watch(['./css/*.css','./js/*.js','*.html'],function(file){
+    livereload.changed(file.path);
+    console.log(file.path)
+  });
 });
 
 //开启本地 Web 服务器功能
@@ -82,7 +90,7 @@ gulp.task('webserver', function() {
     .pipe(webserver({
       host:             localserver.host,
       port:             localserver.port,
-      livereload:       true,
+      livereload:       false,
       directoryListing: false
     }));
 });
@@ -132,7 +140,7 @@ gulp.task('buildjs', ['alljs'] , function() {
 //默认任务
 gulp.task('start', function(){
   gulp.start('styles');
-  gulp.start('clean');
+  // gulp.start('clean');
   gulp.start('alljs');
   gulp.start('watch');
   gulp.start('webserver');
