@@ -63,7 +63,7 @@ $ gulp build
 
 3、打包代码自动生成到build文件夹下，根目录会生成build.zip
 
-[![build](http://wangdaodao.gitcafe.io/uploads/2015/12/feg.gif)](http://wangdaodao.gitcafe.io/uploads/2015/12/feg.gif)
+[![build](http://wangdaodao.qiniudn.com/uploads/2015/12/feg.gif)](http://wangdaodao.qiniudn.com/uploads/2015/12/feg.gif)
 
 ## 常见问题
 由于网络原因安装过程中极有可能出现下列问题，在后面给出了解决方案。
@@ -76,7 +76,7 @@ $ gulp build
 
 #### 解决方案
 
-1. 下载 [node_modules.zip](http://http://pan.baidu.com/s/1gdRZV83)
+1. 下载 [node_modules.zip](http://pan.baidu.com/s/1sk0l70h)
 2. 解压 node_modules.zip 到 feg/node_modules 目录下（feg/node_modules）
 3. 重新尝试 npm install
 
