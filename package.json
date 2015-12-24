@@ -33,7 +33,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-clean":"0.3.1",
     "gulp-zip": "^3.0.2",
-    "opn":"3.0.3",
-    "gulp-plumber": "^1.0.1"
+    "gulp-plumber": "^1.0.1",
+    "opn":"3.0.3"
   }
 }

@@ -25,12 +25,11 @@ var gulp         = require('gulp'),
     livereload   = require('gulp-livereload'),
     uglify       = require('gulp-uglify'),
     webserver    = require('gulp-webserver'),
-    opn          = require('opn'),
     concat       = require('gulp-concat'),
     clean        = require('gulp-clean'),
-    copy         = require("gulp-copy"),
     zip          = require('gulp-zip'),
-    plumber      = require('gulp-plumber');
+    plumber      = require('gulp-plumber'),
+    opn          = require('opn');
 
 //配置本地Web 服务器：主机+端口
 var localserver = {
@@ -62,9 +61,9 @@ gulp.task('cleancss', function () {
 
 //压缩css文件
 gulp.task('styles', function() {
-  return gulp.src('./css/*.scss')
+  return gulp.src('./css/main.scss')
     .pipe(plumber())
-    .pipe(sass({outputStyle: 'compact'}).on('error', sass.logError))
+    .pipe(sass({outputStyle:'compact'}).on('error', sass.logError))
     .pipe(autoprefixer('last 2 version'))
     .pipe(gulp.dest('./css'));
 });
