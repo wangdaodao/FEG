@@ -137,17 +137,24 @@ gulp.task('buildjs', ['alljs'] , function() {
   return stream;
 });
 
-//默认任务
+//默认任务 gulp start
 gulp.task('start', function(){
   gulp.start('styles');
-  // gulp.start('clean');
+  gulp.start('alljs');
+  gulp.start('webserver');
+  gulp.start('openbrowser');
+});
+
+//调试任务 gulp debug
+gulp.task('debug', function(){
+  gulp.start('styles');
   gulp.start('alljs');
   gulp.start('watch');
   gulp.start('webserver');
   gulp.start('openbrowser');
 });
 
-//打包主体build 文件夹并按照时间重命名
+//打包 gulp build
 gulp.task('build' ,['buildhtml','buildcss','buildimg','buildplugin','buildjs'] ,function(){
   function checkTime(i) {
     if (i < 10) {
