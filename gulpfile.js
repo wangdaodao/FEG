@@ -4,19 +4,7 @@ npm config set registry = "https://registry.npmjs.org/"
 使用淘宝
 npm config set registry = "https://registry.npm.taobao.org/"
 
-npm install gulp --save-dev -dd
-npm install node-sass --save-dev -dd
-npm install gulp-sass --save-dev -dd
-npm install gulp-autoprefixer --save-dev -dd
-npm install gulp-minify-css --save-dev -dd
-npm install gulp-livereload --save-dev -dd
-npm install gulp-uglify --save-dev -dd
-npm install gulp-webserver --save-dev -dd
-npm install gulp-concat --save-dev -dd
-npm install gulp-clean --save-dev -dd
-npm install gulp-zip --save-dev -dd
-npm install gulp-plumber --save-dev -dd
-npm install opn --save-dev -dd
+npm install gulp node-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-livereload gulp-uglify gulp-webserver gulp-concat gulp-clean gulp-zip gulp-plumber opn --save-dev
 */
 var gulp         = require('gulp'),
     sass         = require('gulp-sass'),
