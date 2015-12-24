@@ -76,7 +76,7 @@ $ gulp build
 
 #### 解决方案
 
-1. 下载 [node_modules.zip](http://pan.baidu.com/s/1sk0l70h)
+1. 下载 [node_modules.zip](http://pan.baidu.com/s/1YVMKe)
 2. 解压 node_modules.zip 到 feg/node_modules 目录下（feg/node_modules）
 3. 重新尝试 npm install
 
