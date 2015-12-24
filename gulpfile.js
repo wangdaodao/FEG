@@ -71,12 +71,16 @@ gulp.task('styles', function() {
 
 //文件监控
 gulp.task('watch', function () {
-  // Create LiveReload server
-  livereload.listen();
   // Watch .scss files
   gulp.watch('./css/*.scss', ['styles']);
   // Watch .js files
   gulp.watch('./js/*.js', ['alljs']);
+});
+
+//调试监控
+gulp.task('debugwatch', function () {
+  // Create LiveReload server
+  livereload.listen();
   // Watch any files, reload on change
   gulp.watch(['./css/*.css','./js/*.js','*.html'],function(file){
     livereload.changed(file.path);
@@ -141,6 +145,7 @@ gulp.task('buildjs', ['alljs'] , function() {
 gulp.task('start', function(){
   gulp.start('styles');
   gulp.start('alljs');
+  gulp.start('watch');
   gulp.start('webserver');
   gulp.start('openbrowser');
 });
@@ -150,6 +155,7 @@ gulp.task('debug', function(){
   gulp.start('styles');
   gulp.start('alljs');
   gulp.start('watch');
+  gulp.start('debugwatch');
   gulp.start('webserver');
   gulp.start('openbrowser');
 });
