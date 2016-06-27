@@ -1,8 +1,8 @@
 /*
 使用原始
-npm config set registry = "https://registry.npmjs.org/"
+npm config set registry https://registry.npmjs.org
 使用淘宝
-npm config set registry = "http://registry.npm.taobao.org/"
+npm config set registry http://registry.npm.taobao.org
 npm install gulp node-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-livereload gulp-uglify gulp-webserver gulp-concat gulp-clean gulp-zip gulp-plumber gulp.spritesmith opn --save-dev
 */
 var gulp         = require('gulp'),
