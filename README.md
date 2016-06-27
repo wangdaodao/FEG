@@ -16,6 +16,7 @@ FEG 是一个基于 gulp/gulp-plugins 的前端开发集成解决方案。FEG �
 server | 本地 http 服务
 livereload | 浏览器自动刷新
 sass | 文件编译
+sprite | 合并雪碧图
 concat | 文件合并 
 minify | 压缩文件
 zip  | 代码打包
@@ -38,17 +39,22 @@ $ cd feg
 $ npm install
 ```
 
-4、启动
+4、帮助
 ```
-$ gulp start
+$ gulp help
 ```
 
-5、调试
+5、监控
+```
+$ gulp watch
+```
+
+6、调试
 ```
 $ gulp debug
 ```
 
-6、打包
+7、打包
 ```
 $ gulp build
 ```
@@ -68,16 +74,11 @@ $ gulp build
 ## 常见问题
 由于网络原因安装过程中极有可能出现下列问题，在后面给出了解决方案。
 
-安装 node-sass/gulp-sass 失败
-原因：是无法连接亚马逊云服务器下载二进制文件
-
 #### 解决方案
 
-1. 下载 [node_modules.zip](http://pan.baidu.com/s/1YVMKe)
-2. 解压 node_modules.zip 到 feg/node_modules 目录下（feg/node_modules）
+1. 使用其他源
+2. 翻墙
 3. 重新尝试 npm install
-
-我们已将这相关软件包安装包并打包在 node_modules.zip 中，解压后你可以在 feg/node_modules 中找到它们。
 
 ## 鸣谢
 FEG 用到了很多开源软件包，没有这些开源项目就没有FEG，在此对相关开源团队表示由衷的感谢！
