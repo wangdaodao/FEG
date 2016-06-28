@@ -63,7 +63,7 @@ $ gulp build
 
 ## 如何使用
 
-1、进入项目目录 FEG/ 执行 gulp start 命令。此时浏览器会自动打开，并且实时响应你的代码变化（需自行安装[livereload插件](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)）。
+1、进入项目目录 FEG/ 执行 gulp debug 命令。此时浏览器会自动打开，并且实时响应你的代码变化（需自行安装[livereload插件](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)）。
 
 2、进入根目录进行开始工作。
 
