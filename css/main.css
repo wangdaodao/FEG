@@ -102,4 +102,6 @@ select[size], select[multiple], select[size][multiple] { border: 1px solid #AAA;
 
 .clear:after { clear: both; }
 
-.icon-b4 { background-image: url("../img/sprite.png"); background-position: 0px 0px; width: 37px; height: 33px; }
+.icon-a1 { background-image: url("../img/sprite.png"); background-position: 0px 0px; width: 16px; height: 16px; }
+
+.icon-a2 { background-image: url("../img/sprite.png"); background-position: -21px 0px; width: 16px; height: 16px; }

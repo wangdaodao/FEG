@@ -3,13 +3,14 @@
 npm config set registry https://registry.npmjs.org
 使用淘宝
 npm config set registry http://registry.npm.taobao.org
+npm install --save-dev
 npm install gulp node-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-livereload gulp-uglify gulp-webserver gulp-concat gulp-clean gulp-zip gulp-plumber gulp.spritesmith opn --save-dev
 */
 var gulp         = require('gulp'),
     sass         = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     spritesmith  = require('gulp.spritesmith'),
-    minifycss    = require('gulp-minify-css'),
+    cleanCSS    = require('gulp-clean-css'),
     livereload   = require('gulp-livereload'),
     uglify       = require('gulp-uglify'),
     webserver    = require('gulp-webserver'),
@@ -51,7 +52,7 @@ gulp.task('styles', function() {
 
 // 合并雪碧图
 gulp.task('sprite', function () {
-  return gulp.src('img/sprite/*')//需要合并的图片地址
+  return gulp.src('img/sprite/*.png')//需要合并的图片地址
     .pipe(spritesmith({
         imgName: '../img/sprite.png',//保存合并后图片的地址
         cssName: '../css/_sprite.scss',//保存合并后对于css样式的地址
@@ -124,7 +125,7 @@ gulp.task('buildhtml', function() {
 //把CSS拷贝到build下
 gulp.task('buildcss', ['styles'] , function() {
   return gulp.src('./css/*.css')
-    .pipe(minifycss())
+    .pipe(cleanCSS())
     .pipe(gulp.dest('./build/css'));
 });
 

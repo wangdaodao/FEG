@@ -72,13 +72,12 @@ $ gulp build
 [![build](http://wangdaodao.qiniudn.com/uploads/2015/12/feg.gif)](http://wangdaodao.qiniudn.com/uploads/2015/12/feg.gif)
 
 ## 常见问题
-由于网络原因安装过程中极有可能出现下列问题，在后面给出了解决方案。
-
-#### 解决方案
+由于网络原因安装过程中极有可能出现安装失败，解决方案：
 
 1. 使用其他源
 2. 翻墙
 3. 重新尝试 npm install
+4. 邮件联系我
 
 ## 鸣谢
 FEG 用到了很多开源软件包，没有这些开源项目就没有FEG，在此对相关开源团队表示由衷的感谢！
