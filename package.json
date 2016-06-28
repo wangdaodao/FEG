@@ -1,14 +1,14 @@
 {
-  "name": "FEG",
-  "version": "1.0.0",
+  "name": "feg",
+  "version": "1.0.1",
   "description": " Front-End Gulp",
   "main": "index.js",
   "keywords": [
     "gulp",
     "sass",
+    "sprite",
     "livereload",
-    "style",
-    "html",
+    "minify",
     "zip"
   ],
   "author": "wangdaodao",
@@ -16,25 +16,29 @@
   "bugs": {
     "url": "https://github.com/wangdaodao/feg/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/wangdaodao/feg#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wangdaodao/feg"
+    "url": "git+https://github.com/wangdaodao/feg.git"
   },
   "dependencies": {
-    "gulp": "^3.9.0",
-    "node-sass":"3.4.2",
-    "gulp-sass": "2.1.1",
-    "gulp-autoprefixer":"3.1.0",
-    "gulp-minify-css": "^1.2.1",
-    "gulp-livereload":"3.8.1",
-    "gulp-uglify":"1.5.1",
-    "gulp-webserver":"0.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-clean":"0.3.1",
-    "gulp-zip": "^3.0.2",
-    "gulp-plumber": "^1.0.1",
-    "gulp.spritesmith":"0.0.2",
-    "opn":"3.0.3"
+    "gulp": "",
+    "node-sass": "",
+    "gulp-sass": "",
+    "gulp-autoprefixer": "",
+    "gulp-minify-css": "",
+    "gulp-livereload": "",
+    "gulp-uglify": "",
+    "gulp-webserver": "",
+    "gulp-concat": "",
+    "gulp-clean": "",
+    "gulp-zip": "",
+    "gulp-plumber": "",
+    "gulp.spritesmith": "",
+    "opn": ""
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
