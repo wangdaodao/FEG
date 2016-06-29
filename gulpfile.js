@@ -3,8 +3,9 @@
 npm config set registry https://registry.npmjs.org
 使用淘宝
 npm config set registry http://registry.npm.taobao.org
-npm install --save-dev
-npm install gulp node-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-livereload gulp-uglify gulp-webserver gulp-concat gulp-clean gulp-zip gulp-plumber gulp.spritesmith opn --save-dev
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install --save-dev
+cnpm install gulp node-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-livereload gulp-uglify gulp-webserver gulp-concat gulp-clean gulp-zip gulp-plumber gulp.spritesmith opn --save-dev
 */
 var gulp         = require('gulp'),
     sass         = require('gulp-sass'),
