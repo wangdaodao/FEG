@@ -5,7 +5,7 @@ npm config set registry https://registry.npmjs.org
 npm config set registry http://registry.npm.taobao.org
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 cnpm install --save-dev
-cnpm install gulp node-sass gulp-sass gulp-autoprefixer gulp-minify-css gulp-livereload gulp-uglify gulp-webserver gulp-concat gulp-clean gulp-zip gulp-plumber gulp.spritesmith opn --save-dev
+cnpm install gulp node-sass gulp-sass gulp-autoprefixer gulp-clean-css gulp-livereload gulp-uglify gulp-webserver gulp-concat gulp-clean gulp-zip gulp-plumber gulp.spritesmith opn --save-dev
 */
 var gulp         = require('gulp'),
     sass         = require('gulp-sass'),
