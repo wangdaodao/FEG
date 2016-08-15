@@ -1,0 +1,25 @@
+@charset "utf-8";
+@font-face {
+  font-family: "<%= fontName %>";
+  src: url('<%= fontName %>.eot?t='+random(1000));
+  src: url('<%= fontName %>.eot?t='+random(1000)+'#iefix') format('eot'),
+    url('<%= fontName %>.woff?t='+random(1000)) format('woff'),
+    url('<%= fontName %>.ttf?t='+random(1000)) format('truetype'),
+    url('<%= fontName %>.svg?t='+random(1000)+'#<%= fontName %>') format('svg');
+}
+.icon{
+  font-family: "<%= fontName %>";
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none;
+}
+<% _.each(glyphs, function(glyph) { %>
+.icon-<%= glyph.fileName %>:before {
+  content: "\<%= glyph.codePoint %>";
+}
+<% }); %>

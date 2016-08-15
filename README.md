@@ -13,13 +13,14 @@ FEG 是一个基于 gulp/gulp-plugins 的前端开发集成解决方案。FEG �
 
 功能 | 描述
 ---- | ---- 
-server | 本地 http 服务
-livereload | 浏览器自动刷新
-sass | 文件编译
-sprite | 合并雪碧图
-concat | 文件合并 
-minify | 压缩文件
-zip  | 代码打包
+gulp-sass | SASS文件编译
+gulp-clean-css | 压缩CSS
+gulp-iconfont | 把SVG图标制作成字体图标
+gulp.spritesmith | 合并雪碧图
+gulp-file-include | 引用HTML模版 
+gulp-livereload | 实时刷新
+gulp-webserver  | 开启本地服务
+gulp-zip  | 文件打包
 
 ## 安装 FEG
 
@@ -41,29 +42,24 @@ $ npm install
 
 4、帮助
 ```
-$ gulp help
+$ gulp h
 ```
 
-5、监控
+5、开始
 ```
-$ gulp watch
-```
-
-6、调试
-```
-$ gulp debug
+$ gulp s
 ```
 
-7、打包
+6、打包
 ```
-$ gulp build
+$ gulp b
 ```
 
 由于网络问题安装过程会持续一段时间，请耐心等候。
 
 ## 如何使用
 
-1、进入项目目录 FEG/ 执行 gulp debug 命令。此时浏览器会自动打开，并且实时响应你的代码变化（需自行安装[livereload插件](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)）。
+1、进入项目目录 FEG/ 执行 gulp s 命令。此时浏览器会自动打开，并且实时响应你的代码变化（需自行安装[livereload插件](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)）。
 
 2、进入根目录进行开始工作。
 

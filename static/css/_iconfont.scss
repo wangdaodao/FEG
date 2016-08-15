@@ -1,0 +1,28 @@
+@charset "utf-8";
+@font-face {
+  font-family: "iconfont";
+  src: url('iconfont.eot?t='+random(1000));
+  src: url('iconfont.eot?t='+random(1000)+'#iefix') format('eot'),
+    url('iconfont.woff?t='+random(1000)) format('woff'),
+    url('iconfont.ttf?t='+random(1000)) format('truetype'),
+    url('iconfont.svg?t='+random(1000)+'#iconfont') format('svg');
+}
+.icon{
+  font-family: "iconfont";
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none;
+}
+
+.icon-gulp:before {
+  content: "\E001";
+}
+
+.icon-href:before {
+  content: "\E002";
+}

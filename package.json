@@ -1,56 +1,21 @@
 {
-  "name": "FEG",
-  "version": "1.0.0",
-  "description": " Front-End Gulp",
-  "main": "index.js",
-  "keywords": [
-    "gulp",
-    "sass",
-    "livereload",
-    "style",
-    "html",
-    "zip"
-  ],
-  "author": "wangdaodao",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wangdaodao/feg/issues"
-  },
-  "homepage": "",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wangdaodao/feg"
-  },
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean": "^0.3.1",
-    "gulp-clean-css": "^2.0.10",
-    "gulp-concat": "^2.6.0",
-    "gulp-livereload": "^3.8.1",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^2.1.1",
-    "gulp-uglify": "^1.5.1",
-    "gulp-webserver": "^0.9.1",
-    "gulp-zip": "^3.2.0",
-    "gulp.spritesmith": "^6.2.1",
-    "node-sass": "^3.4.2",
-    "opn": "^3.0.3"
-  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean": "^0.3.1",
-    "gulp-clean-css": "^2.0.10",
-    "gulp-concat": "^2.6.0",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-file-include": "^0.14.0",
+    "gulp-iconfont": "^8.0.1",
+    "gulp-iconfont-css": "^2.1.0",
     "gulp-livereload": "^3.8.1",
     "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^2.1.1",
-    "gulp-uglify": "^1.5.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-template": "^4.0.0",
+    "gulp-wait": "^0.0.2",
     "gulp-webserver": "^0.9.1",
     "gulp-zip": "^3.2.0",
     "gulp.spritesmith": "^6.2.1",
-    "node-sass": "^3.4.2",
-    "opn": "^3.0.3"
+    "node-sass": "^3.8.0",
+    "opn": "^4.0.2"
   }
 }

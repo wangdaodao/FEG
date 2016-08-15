@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>图标</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="../js/libs/jquery/jquery.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $(".code").each(function(index, el) {
+        var code = $(this).css('content').replace(/\"/g,'');
+        $(this).next().text(code);
+      });
+    });
+  </script>
+  <link href="icon.css" rel="stylesheet" />
+  <style>
+    body{
+      background-color: #fff;
+    }
+    .icon_lists li{
+      float:left;
+      width: 150px;
+      height:80px;
+      text-align: center;
+      list-style: none;
+    }
+    .icon_lists .icon{
+      font-size: 42px;
+      margin: 10px 0 0;
+      color:#333;
+    }
+    .name {
+      display: block;
+      font-size: 16px;
+    }
+    .clear:after {
+      content: '\20';
+      display: block;
+      height: 0;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="icon_lists clear">
+  
+     <li>
+        <span class="icon icon-gulp"></span>
+        <span class="code code-gulp">.icon-gulp</span>
+        <span class="u"></span>
+     </li>
+  
+     <li>
+        <span class="icon icon-href"></span>
+        <span class="code code-href">.icon-href</span>
+        <span class="u"></span>
+     </li>
+  
+  </ul>
+</body>
+</html>
