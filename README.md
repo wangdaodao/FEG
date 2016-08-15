@@ -63,9 +63,9 @@ $ gulp b
 
 2、进入根目录进行开始工作。
 
-3、打包代码自动生成到build文件夹下，根目录会生成build.zip
+3、SVG图标预览在svg/icon.html
 
-[![build](http://wangdaodao.qiniudn.com/uploads/2015/12/feg.gif)](http://wangdaodao.qiniudn.com/uploads/2015/12/feg.gif)
+4、打包代码自动生成到build文件夹下。
 
 ## 常见问题
 由于网络原因安装过程中极有可能出现安装失败，解决方案：
@@ -73,7 +73,7 @@ $ gulp b
 1. 使用其他源
 2. 重新尝试 npm install
 3. 试试[cnpm](https://npm.taobao.org/)
-4. 自行解决网络问题
+4. hi@wangdaodao.com
 
 ## 鸣谢
 FEG 用到了很多开源软件包，没有这些开源项目就没有FEG，在此对相关开源团队表示由衷的感谢！
